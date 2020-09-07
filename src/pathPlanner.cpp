@@ -83,7 +83,7 @@ double pathPlanner::centerLaneD(int lane) {
 }
 
 double pathPlanner::safetyDistance(double speed_mps) {
-  // see http://www.softschools.com/formulas/physics/stopping_distance_formula/89/
+  // See http://www.softschools.com/formulas/physics/stopping_distance_formula/89/
   double reaction_distance = speed_mps*REACTION_TIME_S;
   double brake_distance = speed_mps*speed_mps
       /(2*CAR_COEFFICIENT_OF_FRICION*CAR_ACCELERATION_DUE_TO_GRAVITY_MPS2);
@@ -101,7 +101,7 @@ double pathPlanner::wrappedDistance(double back_s, double front_s) {
 
 json pathPlanner::path() {
 
-  // define the actual (x,y) points we will use for the planner
+  // Define the actual (x,y) points we will use for the planner
   vector<double> next_x_vals;
   vector<double> next_y_vals;
 
@@ -157,7 +157,7 @@ json pathPlanner::path() {
   }
 
   if (too_close) {
-    ref_velocity -= miPerHr_to_mPerSec(1.0);
+    ref_velocity -= miPerHr_to_mPerSec(1.25);
   }
   else if (ref_velocity < miPerHr_to_mPerSec(MAX_SPEED_MPH)) {
     ref_velocity += miPerHr_to_mPerSec(0.5);
@@ -240,7 +240,7 @@ json pathPlanner::path() {
   // Fill up the rest of our path planner after filling it with previous points; here we will always output 50 points
 
   for (int i = 1; i <= NUMBER_OF_PATH_POINTS - previous_path_x.size(); ++i) {
-//  Calculate a new intermediate waypoint every 0.02 seconds (TICK_S)
+    // Calculate a new intermediate waypoint every 0.02 seconds (TICK_S)
     double N = target_dist/(TICK_S*ref_velocity);
     double x_point = x_offset + target_x/N;
     double y_point = s(x_point);
