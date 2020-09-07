@@ -8,7 +8,7 @@ The car should try to drive as close as possible to the 50 mph speed limit at al
 
 ## Path Planner performance
 
-Below is a sample video of the car driving round the highway loop for more than 10 minutes, during which it safely executes several lane change manouvres, and also opts to stay in lane and maintain a safety distance buffer with respect to the car in front when switching lanes is not possible.
+Below is a sample video of the car driving round the highway loop for more than 10 minutes, during which it safely executes several lane change manoeuvres, and also opts to stay in lane and maintain a safety distance buffer with respect to the car in front when switching lanes is not possible.
 
 [![Autonomous driving on a highway](https://img.youtube.com/vi/s8iEPtWN17g/0.jpg)](https://www.youtube.com/watch?v=s8iEPtWN17g)
 
