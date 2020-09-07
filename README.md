@@ -62,7 +62,7 @@ The path planner algorithm submitted for this project appears to work well on th
 
 ### Future improvements
 
-The submitted code has been tuned to try and maximise the amount of time and laps round the highway loop without any incidents such as collisions or excessive braking or acceleration events. Since the timer and mileage counters are both reset if emergency braking causes the ego vehicle to violate the acceleration and jerk limits, the code has been adjusted to obey a uniform acceleration limit of +0.5 mph / 0.02 s execution step and a deceleration of -1.25 mph / 0.02 s at all times -- details can be found starting on [line 159 of PathPlanner::path()](https://github.com/shahid-n/path-planning-project/blob/master/src/pathPlanner.cpp#L159).
+The submitted code has been tuned to try and maximise the amount of time and laps round the highway loop without any incidents such as collisions or excessive braking or acceleration events. Since the timer and mileage counters are both reset if emergency braking causes the ego vehicle to violate the acceleration and jerk limits, the code has been adjusted to obey a uniform acceleration limit of +0.5 mph / (0.02 s) execution step and a deceleration of -1.25 mph / (0.02 s) at all times -- details can be found starting on [line 159 of PathPlanner::path()](https://github.com/shahid-n/path-planning-project/blob/master/src/pathPlanner.cpp#L159).
 
 By way of future enhancements, I would split the algorithm into separate Behaviour Planner and Trajectory Generator modules. Specifically, the implementation of a formal state machine for behaviour planning and the evaluation of different predicted behaviours and candidate trajectories based on optimising cost functions would result in noticeable improvements.
 
