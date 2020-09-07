@@ -191,11 +191,10 @@ json pathPlanner::path() {
 
     ptsy.push_back(ref_y_prev);
     ptsy.push_back(ref_y);
-
   }
 
   double destinationD = centerLaneD(lane);
-  vector<double> next_wp0 = getXY(obj_s + 35, destinationD, map_waypoints_s_, map_waypoints_x_, map_waypoints_y_);
+  vector<double> next_wp0 = getXY(obj_s + 30, destinationD, map_waypoints_s_, map_waypoints_x_, map_waypoints_y_);
   vector<double> next_wp1 = getXY(obj_s + 60, destinationD, map_waypoints_s_, map_waypoints_x_, map_waypoints_y_);
   vector<double> next_wp2 = getXY(obj_s + 90, destinationD, map_waypoints_s_, map_waypoints_x_, map_waypoints_y_);
   vector<double> next_wp3 = getXY(obj_s + 120, destinationD, map_waypoints_s_, map_waypoints_x_, map_waypoints_y_);
@@ -236,16 +235,16 @@ json pathPlanner::path() {
   double target_y = s(target_x);
   double target_dist = sqrt(target_x*target_x + target_y*target_y);
 
-  double x_add_on = 0;
+  double x_offset = 0;
 
   // Fill up the rest of our path planner after filling it with previous points; here we will always output 50 points
 
   for (int i = 1; i <= NUMBER_OF_PATH_POINTS - previous_path_x.size(); ++i) {
-//  Each 0.02 seconds a new point is reached, transform miles per hour to m/s
+//  Calculate a new intermediate waypoint every 0.02 seconds (TICK_S)
     double N = target_dist/(TICK_S*ref_velocity);
-    double x_point = x_add_on + target_x/N;
+    double x_point = x_offset + target_x/N;
     double y_point = s(x_point);
-    x_add_on = x_point;
+    x_offset = x_point;
 
     double x_ref = x_point;
     double y_ref = y_point;

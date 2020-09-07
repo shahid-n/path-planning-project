@@ -41,16 +41,6 @@ class pathPlanner
     double safetyCosts(int lane);
     double wrappedDistance(double s1, double s2);
 
-    bool accel_init = true;
-    bool decel_init = false;
-    bool accel_complete = false;
-    bool decel_complete = true;
-    double v0, T1, T2;
-    double vRef = miPerHr_to_mPerSec(MAX_SPEED_MPH);
-    int N1, N2;
-    int i_accel = 0;
-    int i_decel = 0;
-
   protected:
 
   private:
