@@ -36,7 +36,9 @@ The safe distance to a car directly ahead of the ego vehicle is calculated in [P
 The prediction of the location of the ego vehicle is defined by the end point of the previous path that was calculated in the previous iteration.
 
 The prediction of the location of other target vehicles which are ahead of the ego vehicle within a 100 m range is performed according to the following iterative formula (see [line 123 in PathPlanner::path()](https://github.com/shahid-n/path-planning-project/blob/master/src/pathPlanner.cpp#L123)):
-        check_obj_s += ((double) prev_size*TICK_S*check_speed);
+```
+check_obj_s += ((double) prev_size*TICK_S*check_speed);
+```
 
 #### Identification of the fastest lane
 

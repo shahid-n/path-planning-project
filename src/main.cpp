@@ -82,7 +82,7 @@ int main() {
         }  // end "telemetry" if
       }
       else {
-//      Manual driving
+        //  Manual driving
         std::string msg = "42[\"manual\",{}]";
         ws.send(msg.data(), msg.length(), uWS::OpCode::TEXT);
       }
